@@ -23,7 +23,7 @@ int counter7 = 0;
 int counter8 = 0;
 int counter9 = 0;
 
-
+Console.WriteLine(" ");
 Console.WriteLine("Wynik dla liczby: " + numberAsString);
 
 foreach (char letter in letters)
