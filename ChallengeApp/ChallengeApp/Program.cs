@@ -33,5 +33,5 @@ foreach (var user in users)
     }
 }
 
-Console.WriteLine("Najlepszy pracownik z najwyższą liczbą ocen: " + userWithMaxResult.name + " " + userWithMaxResult.lastname + " " + userWithMaxResult.age);
+Console.WriteLine("Najlepszy pracownik z najwyższą liczbą ocen: " + userWithMaxResult.name + " " + userWithMaxResult.lastname + " " + userWithMaxResult.age + " lat");
 Console.WriteLine("Suma uzyskanych ocen:  " + maxResult) ;
