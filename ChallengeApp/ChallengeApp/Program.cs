@@ -1,83 +1,37 @@
-﻿using System;
-using System.ComponentModel.Design;
-using System.Diagnostics.Metrics;
+﻿using ChallengeApp;
 
-Console.WriteLine("***Program który policzy ile/jakich cyfr występuje w podanej liczbie***");
-Console.WriteLine(" ");
-//int number = 4566;
-Console.WriteLine("Proszę o podanie dowolnej liczby");
-var number = Console.ReadLine();
+Employee user1 = new Employee("Daniel","Kowalski",35);
+Employee user2 = new Employee("Monika","Nowak",33);
+Employee user3 = new Employee("Lena","Duda",18);
 
+user1.AddScore(8);
+user1.AddScore(7);
+user1.AddScore(6);
 
-string numberAsString = number.ToString();
-char[] letters = numberAsString.ToArray();
+user2.AddScore(9);
+user2.AddScore(8);
+user2.AddScore(7);
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
+user3.AddScore(10);
+user3.AddScore(9);
+user3.AddScore(8);
 
-Console.WriteLine(" ");
-Console.WriteLine("Wynik dla liczby: " + numberAsString);
+List<Employee> users = new List<Employee>()
+{
+    user1,user2,user3
+};
 
-foreach (char letter in letters)
+int maxResult = -1;
+Employee userWithMaxResult = null;
+
+foreach (var user in users)
+{
+    if (user.result > maxResult)
     {
-        if (letter == '0')
-        {
-            counter0++;
-        }
-        else if (letter == '1')
-        {
-            counter1++;
-        }
-        else if (letter == '2')
-        {
-            counter2++;
-        }
-        else if (letter == '3')
-        {
-            counter3++;
-        }
-        else if (letter == '4')
-        {
-            counter4++;
-        }
-        else if (letter == '5')
-        {
-            counter5++;
-        }
-        else if (letter == '6')
-        {
-            counter6++;
-        }
-        else if (letter == '7')
-        {
-            counter7++;
-        }
-        else if (letter == '8')
-        {
-            counter8++;
-        }
-        else if (letter == '9')
-        {
-            counter9++;
-        }
+        maxResult = user.result;
+        userWithMaxResult = user;
     }
-      
+}
 
-Console.WriteLine("0 =>" + " " + counter0);
-Console.WriteLine("1 =>" + " " + counter1);
-Console.WriteLine("2 =>" + " " + counter2);
-Console.WriteLine("3 =>" + " " + counter3);
-Console.WriteLine("4 =>" + " " + counter4);
-Console.WriteLine("5 =>" + " " + counter5);
-Console.WriteLine("6 =>" + " " + counter6);
-Console.WriteLine("7 =>" + " " + counter7);
-Console.WriteLine("8 =>" + " " + counter8);
-Console.WriteLine("9 =>" + " " + counter9);
+Console.WriteLine("Najlepszy pracownik z najwyższą liczbą ocen: " + userWithMaxResult.name + " " + userWithMaxResult.lastname + " " + userWithMaxResult.age);
+Console.WriteLine("Suma uzyskanych ocen:  " + maxResult) ;
